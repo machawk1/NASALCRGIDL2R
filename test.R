@@ -47,6 +47,8 @@ for(i in as.single(4:7)) {
   #cat("\n")
 }
 
-
-
 dev.off()
+
+
+singleString <- paste(readLines(outputPathSVG), collapse=" ")
+print(singleString)
