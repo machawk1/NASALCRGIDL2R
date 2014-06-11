@@ -1,7 +1,11 @@
 library (lattice)
+library(Cairo)
 
-filename <- "testFull.txt"
-outputPath = "/Users/mkelly/Desktop/NASALCRGIDL2R/figure.png"
+filename <- "/Users/mkelly/Desktop/NASALCRGIDL2R/testFull.txt"
+outputPathPNG = "/Users/mkelly/Desktop/NASALCRGIDL2R/figure.png"
+outputPathSVG = "/Users/mkelly/Desktop/NASALCRGIDL2R/figure.svg"
+outputPathPDF = "/Users/mkelly/Desktop/NASALCRGIDL2R/figure.pdf"
+
 colores = c("purple","red","blue","orange")
 
 header_type <- scan(filename, nlines = 1, what = character())
@@ -18,7 +22,10 @@ data = dataPreFiltered[row_sub,] # This assumes data like -99 is noise
 names(data) <- header_type
 names(data) <- headers
 
-png(filename=outputPath, height=1200, width=1200, bg="white", res=150) 
+#png(filename=outputPathPNG)#, height=1200, width=1200, bg="white", res=150) 
+svg(file=outputPathSVG) 
+#pdf(outputPathPDF) 
+
 par(mfrow=c(4,1))
 
 #xal = paste("Date/time (",header_type[1],header_type[2],")",sep=" ")
